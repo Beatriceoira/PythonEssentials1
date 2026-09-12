@@ -150,3 +150,157 @@ from random import randrange
  
 for i in range(10):
     print(randrange(8))
+
+
+# Description
+
+A simple command-line Tic-Tac-Toe game written in Python. You play against the computer, with the player using O and the computer using X.
+
+## Features
+- Play Tic-Tac-Toe directly in the terminal.
+- Player moves are entered using numbers 1–9.
+- The computer chooses its moves randomly.
+- Detects wins for both the player and computer.
+- Detects tied games.
+- Prevents invalid or occupied moves.
+
+## System Requirements
+Python 3.x
+No external libraries are required.
+The project uses Python's built-in random module.
+
+## How to Play
+
+Run the Python file from your terminal:
+
+python tic_tac_toe.py
+
+
+The board is displayed using numbers to identify each square:
+
++-------+-------+-------+
+|       |       |       |
+|   1   |   2   |   3   |
+|       |       |       |
++-------+-------+-------+
+|       |       |       |
+|   4   |   X   |   6   |
+|       |       |       |
++-------+-------+-------+
+|       |       |       |
+|   7   |   8   |   9   |
+|       |       |       |
++-------+-------+-------+
+
+
+Enter the number corresponding to the square where you want to place your O.
+
+For example:
+
+Enter your move: 1
+
+
+The computer will then automatically make its move using X.
+
+
+## Board Positions
+
+The positions are numbered as follows:
+
+1 | 2 | 3
+---------
+4 | 5 | 6
+---------
+7 | 8 | 9
+
+## Game Rules
+- The player is O.
+- The computer is X.
+- Players take turns placing their symbol on an empty square.
+- The first player to get three symbols in a row wins.
+- A winning row can be:
+Horizontal
+Vertical
+Diagonal
+- If all squares are filled without a winner, the game ends in a tie.
+
+## Code Overview
+display_board(board)
+
+Displays the current game board in a formatted grid.
+
+enter_move(board)
+
+Handles the player's input and validates the selected move.
+
+It checks that:
+
+- The input is a number.
+- The number is between 1 and 9.
+- The selected square is not already occupied.
+
+The player's symbol O is then placed on the board.
+
+make_list_of_free_fields(board)
+
+Finds all empty squares on the board and returns their row and column positions.
+
+Example:
+
+[(0, 0), (0, 1), (0, 2)]
+
+victory_for(board, sign)
+
+Checks whether the specified player has won.
+
+It checks all:
+
+- Rows
+- Columns
+- Main diagonal
+- Opposite diagonal
+- draw_move(board)
+
+Makes the computer's move.
+
+The computer:
+
+- Finds all available squares.
+- Randomly selects one.
+- Places X in that square.
+- Starting Board
+
+The game starts with the center square occupied by the computer:
+
+board = [
+    [1, 2, 3],
+    [4, 'X', 6],
+    [7, 8, 9]
+]
+
+
+This means the computer has already placed X in position 5 before the first player move.
+
+Example Game
+Enter your move: 1
+
++-------+-------+-------+
+|       |       |       |
+|   O   |   2   |   3   |
+|       |       |       |
++-------+-------+-------+
+|       |       |       |
+|   4   |   X   |   6   |
+|       |       |       |
++-------+-------+-------+
+|       |       |       |
+|   7   |   8   |   9   |
+|       |       |       |
++-------+-------+-------+
+
+
+The computer then selects an available square at random.
+
+## License
+
+This project is intended for educational and personal use.
